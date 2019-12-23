@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "55963323016",
+    "firebase_url": "https://socialmusic-9cf35.firebaseio.com",
+    "project_id": "socialmusic-9cf35",
+    "storage_bucket": "socialmusic-9cf35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55963323016:android:3fbb032ca152ddde94ad3d",
+        "android_client_info": {
+          "package_name": "com.includeus.social_music"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55963323016-9t433kmo8f7ovpvhbvdmfkrg3vbsucsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8PaAjaejBKVj8uErv-ZqOOPlAycHQ3Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55963323016-9t433kmo8f7ovpvhbvdmfkrg3vbsucsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

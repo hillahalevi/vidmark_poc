@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -70,11 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
     'm5cpxtzl8fo',
   ];
   int count = 0;
+  HashMap memories = new HashMap<Duration, String>();
 
   @override
   void initState() {
     super.initState();
-    String videoId= 'MtHtCYNfuEs';
+    String videoId = 'MtHtCYNfuEs';
     _controller = YoutubePlayerController(
       initialVideoId: videoId,
       flags: YoutubePlayerFlags(
@@ -91,7 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _videoMetaData = YoutubeMetaData();
     _playerState = PlayerState.unknown;
     _historyIds.add(videoId);
-
   }
 
   void listener() {
@@ -227,6 +229,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 _space,
+                TextField(
+                  enabled: _isPlayerReady,
+                  controller: _idController,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Enter your video link',
+                    fillColor: Colors.blueAccent.withAlpha(20),
+                    filled: true,
+                    hintStyle: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      color: Colors.blueAccent,
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.clear),
+                      onPressed: () => _idController.clear(),
+                    ),
+                  ),
+                ),
+                _space,
                 Row(
                   children: [
                     _loadCueButton('LOAD'),
@@ -322,11 +343,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-  }
-
-  void _streamVideo(String videoId) {
-    _historyIds.add(videoId);
-    _controller.load(videoId);
   }
 
   Widget _text(String title, String value) {
@@ -429,5 +445,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  void _streamVideo(String videoId) {
+    _historyIds.add(videoId);
+    _controller.load(videoId);
+  }
+
+  void _holdMemories(String memory) {
+    memories[_controller.value.position] = memory;
+    print(memories);
   }
 }
